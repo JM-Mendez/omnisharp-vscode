@@ -195,7 +195,7 @@ export default class TestManager extends AbstractProvider {
         return vscode.workspace.getConfiguration('omnisharp').get<string>('testRunSettings');
     }
 
-    public async runDotnetTest(testMethod: string, fileName: string, testFrameworkName: string, noBuild: boolean = false) {
+    public async runDotnetTest(testMethod: string, fileName: string, testFrameworkName: string, noBuild: boolean = true) {
 
         this._eventStream.post(new DotNetTestRunStart(testMethod));
 
@@ -388,7 +388,7 @@ export default class TestManager extends AbstractProvider {
         return { debugEventListener, targetFrameworkVersion };
     }
 
-    public async debugDotnetTest(testMethod: string, fileName: string, testFrameworkName: string, noBuild: boolean = false) {
+    public async debugDotnetTest(testMethod: string, fileName: string, testFrameworkName: string, noBuild: boolean = true) {
         // We support to styles of 'dotnet test' for debugging: The legacy 'project.json' testing, and the newer csproj support
         // using VS Test. These require a different level of communication.
 
