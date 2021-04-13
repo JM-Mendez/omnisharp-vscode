@@ -218,7 +218,7 @@ export default class TestManager extends AbstractProvider {
         }
     }
 
-    public async runDotnetTestsInClass(className: string, methodsInClass: string[], fileName: string, testFrameworkName: string, noBuild: boolean = false) {
+    public async runDotnetTestsInClass(className: string, methodsInClass: string[], fileName: string, testFrameworkName: string, noBuild: boolean = true) {
 
         //to do: try to get the class name here
         this._eventStream.post(new DotNetTestsInClassRunStart(className));
